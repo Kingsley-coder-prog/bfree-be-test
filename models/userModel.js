@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// This Schema defines the details about users that will be stored in the database and can be queried
 const userSchema = new mongoose.Schema({
   name: {
     type: String,

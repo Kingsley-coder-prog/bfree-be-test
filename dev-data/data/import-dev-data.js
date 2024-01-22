@@ -7,6 +7,7 @@ dotenv.config({ path: "./config.env" });
 
 const DB = process.env.DATABASE.replace("<PASSWORD>", process.env.DATABASE_PASSWORD);
 
+// This connects the app to the database
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
@@ -16,9 +17,10 @@ mongoose
   .then(() => console.log("DB connection succesful!"));
 
 // READ JSON FILE
+// Reads content of user details in users.json into database when imported
 const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, "utf-8"));
 
-// IMPORT DATA INTO DB
+// IMPORT DATA INTO DATABASE
 const importData = async () => {
   try {
     await User.create(users);
