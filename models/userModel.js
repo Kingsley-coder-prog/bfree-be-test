@@ -24,7 +24,32 @@ const userSchema = new mongoose.Schema({
   partner: {
     type: String
   },
-  loanId: Number
+  loanId: String,
+  loanInstalmentId: String,
+  daysLate: Date,
+  dueDate: Date,
+  originalAmountToPay: Number,
+  lateFees: Number,
+  originalInterestToPay: Number,
+  amountPlusFees: Number,
+  amountPreviouslyPaidByCustomer: Number,
+  numberOfInstalments: Number,
+  amountPlusTotalInstalments: Number,
+  amountPaid: Number,
+  customerDiscount: Number,
+  balanceRemaining: Number,
+  partnerAccountNumber: Number,
+  partnerAccountName: String,
+  partnerBankName: String,
+  enterDate: Date,
+  userTelephone: Number,
+  applicationTelephone: Number,
+  lga: String,
+  bvn: Number,
+  bvnTelephone: Number,
+  guarantorName: String,
+  guarantorTelephone: Number,
+  guarantorRelationship: String
 });
 
 const User = mongoose.model("User", userSchema);
