@@ -23,7 +23,8 @@ const userSchema = new mongoose.Schema({
   },
   partner: {
     type: String
-  }
+  },
+  loanId: Number
 });
 
 const User = mongoose.model("User", userSchema);
