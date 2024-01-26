@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const userRouter = require("./routes/userRoutes");
 
@@ -24,7 +25,13 @@ app.use((req, res, next) => {
 });
 
 // 2) ROUTES
+const corsOptions = {
+  origin: "http://localhost:5173", // Replace with your Vue.js app's origin
+  optionsSuccessStatus: 200 // Some legacy browsers (IE11) may not understand 204
+};
 
+app.use(cors(corsOptions));
+app.options("*", cors());
 app.use("/api/v1/users", userRouter);
 
 module.exports = app;
